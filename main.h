@@ -47,4 +47,10 @@ int print_hex_upper(va_list, flags_t *);
 int print_hex(va_list, flags_t *);
 int print_S(va_list, flags_t *);
 int print_address(va_list, flags_t *);
+int print_rev(va_list, flags_t *);
+int print_rot13(va_list, flags_t *);
+int print_percent(va_list, flags_t *);
+
+
+
 #endif
