@@ -58,3 +58,26 @@ int print_S(va_list arg, flags_t __attribute__((__unused__)) *flag)
 	}
 	return (count);
 }
+
+/**
+ * print_rev - handles non-printable chars
+ * @arg: va_list args
+ * @flag: pointer to flag
+ * Return: number of chars printed
+ */
+int print_rev(va_list arg, flags_t __attribute__((__unused__)) *flag)
+{
+	int i = 0, j;
+	char *s = va_arg(arg, char *);
+
+	if (!s)
+		s = "(null)";
+
+	while (s[i])
+		i++;
+
+	for (j = i - 1; j >= 0; j--)
+		_putchar(s[j]);
+
+	return (i);
+}
