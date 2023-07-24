@@ -16,6 +16,10 @@ int (*get_handler(char c))(va_list, flags_t *)
 		{'c', print_char},
 		{'d', print_int},
 		{'u', print_unsigned},
+		{'b', print_binary},
+		{'o', print_octal},
+		{'x', print_hex},
+		{'X', print_hex_upper},
 		{0, NULL}
 	};
 	int i = 0;

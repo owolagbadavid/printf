@@ -26,7 +26,7 @@ typedef struct flags
 typedef struct pHandler
 {
 	char c;
-	int (*func)(va_list ap, flags_t *flag);
+	int (*func)(va_list arg, flags_t *flag);
 } pHandler_t;
 
 int _putchar(char);
@@ -41,4 +41,10 @@ int print_string(va_list, flags_t *);
 int (*get_handler(char))(va_list, flags_t *);
 int get_flag(char, flags_t *);
 char *convert(unsigned long int num, int base, int upper);
+int print_binary(va_list, flags_t *);
+int print_octal(va_list, flags_t *);
+int print_hex_upper(va_list, flags_t *);
+int print_hex(va_list, flags_t *);
+
+
 #endif
