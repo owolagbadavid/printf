@@ -24,7 +24,7 @@ int (*get_handler(char c))(va_list, flags_t *)
 		{'p', print_address},
 		{'R', print_rot13},
 		{'r', print_rev},
-		{'%', print_percent}
+		{'%', print_percent},
 		{0, NULL}
 	};
 	int i = 0;
