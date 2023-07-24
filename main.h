@@ -45,6 +45,6 @@ int print_binary(va_list, flags_t *);
 int print_octal(va_list, flags_t *);
 int print_hex_upper(va_list, flags_t *);
 int print_hex(va_list, flags_t *);
-
-
+int print_S(va_list, flags_t *);
+int print_address(va_list, flags_t *);
 #endif

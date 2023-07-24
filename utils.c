@@ -20,6 +20,8 @@ int (*get_handler(char c))(va_list, flags_t *)
 		{'o', print_octal},
 		{'x', print_hex},
 		{'X', print_hex_upper},
+		{'S', print_S},
+		{'p', print_address},
 		{0, NULL}
 	};
 	int i = 0;
