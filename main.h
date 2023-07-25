@@ -35,8 +35,8 @@ typedef struct pHandler
 int _putchar(char);
 int _puts(char *);
 int _printf(const char *, ...);
-int count_digit(int);
-void print_number(int);
+int count_digit(long int);
+void print_number(long int);
 int print_unsigned(va_list, flags_t *);
 int print_int(va_list, flags_t *);
 int print_char(va_list, flags_t *);

@@ -81,7 +81,7 @@ int get_flag(char s, flags_t *flag)
  * @i: int
  * Return: number of digits
  */
-int count_digit(int i)
+int count_digit(long int i)
 {
 	unsigned int d = 0, u;
 

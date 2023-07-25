@@ -81,7 +81,7 @@ int print_unsigned(va_list arg, flags_t *flag)
 * print_number - prints num
 * @n: integer to be printed
 */
-void print_number(int n)
+void print_number(long int n)
 {
 	unsigned int n1;
 
