@@ -35,6 +35,7 @@ int _printf(const char *format, ...)
 		count += (pHndlr)
 			? pHndlr(args, &flags)
 			: _printf("%%%c", *p);
+		reset_flags(&flags);
 		}
 	else
 		count += _putchar(*p);
