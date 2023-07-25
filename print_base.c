@@ -121,25 +121,42 @@ int print_binary(va_list arg, flags_t __attribute__((__unused__)) *flag)
 */
 int print_octal(va_list arg, flags_t *flag)
 {
-	unsigned long int num;
-	char *str;
-	int count = 0;
+	unsigned long int num = handle_len(arg, flag);
+	char *str = convert(num, 8, 0), *replc;
+	int count = 0, i;
 
-	if (flag->shorter == 1 && flag->longer == 0)
+	if (flag->width - _strlen(str) > 0)
 	{
-		num = (unsigned short int)va_arg(arg, unsigned int);
-	}
-	else if (flag->longer == 1)
-	{
-		num = (unsigned long int)va_arg(arg, unsigned long int);
+		if (flag->hash == 1 && str[0] != '0')
+		{
+			if ((flag->width - _strlen(str) - 1) <= 0)
+			{
+				count += _puts("0");
+				count += _puts(str);
+				return (count);
+			}
+			replc = (char *)malloc(flag->width + 1);
+			for (i = 0; i < (flag->width - _strlen(str) - 1); i++)
+				replc[i] = ' ';
+			replc[i++] = '0';
+			for (i = 0; i < _strlen(str); i++)
+				replc[(i + flag->width - _strlen(str))] = str[i];
+			replc[flag->width] = '\0';
+		}
+		else
+		{
+			replc = (char *)malloc(flag->width + 1);
+			for (i = 0; i < (flag->width - _strlen(str)); i++)
+				replc[i] = ' ';
+			for (i = 0; i < _strlen(str); i++)
+				replc[i + flag->width - _strlen(str)] = str[i];
+		}
 	}
 	else
 	{
-		num = va_arg(arg, unsigned int);
+		return (handle_hash_octal(str, flag));
 	}
-	str = convert(num, 8, 0);
-	if (flag->hash == 1 && str[0] != '0')
-		count += _putchar('0');
-	count += _puts(str);
-	return (count);
+	count += _puts(replc);
+	free(replc);
+	return (count);	
 }
