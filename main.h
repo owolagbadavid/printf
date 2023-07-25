@@ -9,6 +9,8 @@
  * @plus: flag '+'
  * @longer: flag 'h'
  * @shorter: flag 'h'
+ * @width: flag 'num'
+ * @precision: '.'
  * @hash: flag '#'
  */
 typedef struct flags
