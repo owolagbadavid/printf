@@ -61,4 +61,5 @@ int print_percent(va_list, flags_t *);
 int _strlen(char *);
 unsigned long int handle_len(va_list, flags_t *);
 int handle_hash(char *, flags_t *);
+int handle_hash_upper(char *, flags_t *);
 #endif

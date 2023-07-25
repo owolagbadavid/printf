@@ -91,7 +91,7 @@ int print_hex_upper(va_list arg, flags_t *flag)
 	}
 	else
 	{
-		return (handle_hash(str, flag));
+		return (handle_hash_upper(str, flag));
 	}
 	count += _puts(replc);
 	free(replc);

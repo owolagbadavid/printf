@@ -56,3 +56,20 @@ int handle_hash(char *str, flags_t *flag)
 	count += _puts(str);
 	return (count);
 }
+
+/**
+* handle_hash_upper - stuff
+*
+* @flag: pointer
+* @str: arg
+* Return: int
+*/
+int handle_hash_upper(char *str, flags_t *flag)
+{
+	int count = 0;
+
+	if (flag->hash == 1 && str[0] != '0')
+		count += _puts("0X");
+	count += _puts(str);
+	return (count);
+}
