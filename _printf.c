@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 	int (*pHndlr)(va_list, flags_t *);
 	const char *p;
 	va_list args;
-	flags_t flags = {0, 0, 0};
+	flags_t flags = {0, 0, 0, 0, 0};
 
 	register int count = 0;
 

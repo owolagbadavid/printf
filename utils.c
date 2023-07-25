@@ -63,6 +63,14 @@ int get_flag(char s, flags_t *flag)
 			flag->hash = 1;
 			i = 1;
 			break;
+		case 'l':
+			flag->longer++;
+			i = 1;
+			break;
+		case 'h':
+			flag->shorter++;
+			i = 1;
+			break;
 	}
 
 	return (i);

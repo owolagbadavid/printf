@@ -7,7 +7,8 @@
  * struct flags - flags
  * @space: flag ' '
  * @plus: flag '+'
- *
+ * @longer: flag 'h'
+ * @shorter: flag 'h'
  * @hash: flag '#'
  */
 typedef struct flags
@@ -15,6 +16,8 @@ typedef struct flags
 	int space;
 	int plus;
 	int hash;
+	int longer;
+	int shorter;
 } flags_t;
 
 /**
