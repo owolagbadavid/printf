@@ -11,6 +11,7 @@ int print_hex(va_list arg, flags_t *flag)
 	unsigned long int num;
 	char *str;
 	int count = 0, i;
+	char *replc;
 
 	if (flag->shorter == 1 && flag->longer == 0)
 	{
@@ -26,15 +27,47 @@ int print_hex(va_list arg, flags_t *flag)
 	}
 	str = convert(num, 16, 0);
 	if (flag->width - _strlen(str) > 0)
-	{
-		for (i = 0; i < flag->width - _strlen(str); i++)
+	{	
+		if (flag->hash == 1 && str[0] != '0')
 		{
-			_putchar(' ');
+			if (flag->width - _strlen(str) - 2 <= 0)
+			{
+				count += _puts("0x");
+				count += _puts(str);
+				return (count);
+			}
+			replc = (char *)malloc(flag->width);
+			for (i = 0; i < (flag->width - _strlen(str) - 2); i++)
+			{
+				replc[i] = ' ';
+			}
+				replc[i++] = '0';
+				replc[i] = 'x';
+			for (i = 0; i < _strlen(str); i++)
+			{
+				replc[i + flag->width - _strlen(str) + 2] = str[i];
+			}
 		}
+		else
+		{
+			replc = (char *)malloc(flag->width);
+			for (i = 0; i < (flag->width - _strlen(str)); i++)
+			{
+				replc[i] = ' ';
+			}
+			for (i = 0; i < _strlen(str); i++)
+			{
+				replc[i + flag->width - _strlen(str)] = str[i];
+			}
+		}
+
 	}
-	if (flag->hash == 1 && str[0] != '0')
-		count += _puts("0x");
-	count += _puts(str);
+	else
+	{
+		count += _puts(str);
+		return (count);
+	}
+	count += _puts(replc);
 	return (count);
 }
 
