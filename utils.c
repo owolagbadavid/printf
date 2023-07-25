@@ -83,7 +83,7 @@ int get_flag(char s, flags_t *flag)
  */
 int count_digit(long int i)
 {
-	unsigned int d = 0, u;
+	unsigned long int d = 0, u;
 
 	if (i < 0)
 		u = i * -1;

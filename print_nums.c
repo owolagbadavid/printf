@@ -67,7 +67,7 @@ int print_unsigned(va_list arg, flags_t *flag)
 */
 void print_number(long int n)
 {
-	unsigned int n1;
+	unsigned long int n1;
 
 	if (n < 0)
 	{
