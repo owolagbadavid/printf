@@ -10,7 +10,7 @@ int print_hex(va_list arg, flags_t *flag)
 {
 	unsigned long int num;
 	char *str;
-	int count = 0;
+	int count = 0, i;
 
 	if (flag->shorter == 1 && flag->longer == 0)
 	{
@@ -25,6 +25,13 @@ int print_hex(va_list arg, flags_t *flag)
 		num = va_arg(arg, unsigned int);
 	}
 	str = convert(num, 16, 0);
+	if (flag->width - _strlen(str) > 0)
+	{
+		for (i = 0; i < flag->width - _strlen(str); i++)
+		{
+			_putchar(' ');
+		}
+	}
 	if (flag->hash == 1 && str[0] != '0')
 		count += _puts("0x");
 	count += _puts(str);

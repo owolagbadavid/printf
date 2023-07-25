@@ -159,3 +159,24 @@ char *convert(unsigned long int num, int base, int upper)
 
 	return (ptr);
 }
+
+
+/**
+* _strlen - stuff
+*
+* @s: pointer
+* Return: int
+*/
+int _strlen(char *s)
+{
+
+
+	int counter = 0;
+
+	while (s[counter] != '\0')
+	{
+		counter++;
+	}
+
+	return (counter);
+}
