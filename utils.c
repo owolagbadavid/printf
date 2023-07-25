@@ -75,10 +75,13 @@ int get_flag(const char *s, flags_t *flag, va_list arg)
 			if ((*s >= '0' && *s <= '9') || *s == '*')
 			{
 				flag->width = get_width_or_precision(s, arg);
+				i = 1;
 			}
 			else if (*s == '.')
 			{
+				s++;
 				flag->precision = get_width_or_precision(s, arg);
+				i = 1;
 			}
 			break;
 	}
