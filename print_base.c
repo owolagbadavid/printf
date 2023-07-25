@@ -83,9 +83,9 @@ int print_hex(va_list arg, flags_t *flag)
 int print_hex_upper(va_list arg, flags_t *flag)
 {
 	unsigned long int num;
-	char *str, *replc;
+	char *str;
 	int count = 0, i;
-
+	char *replc;
 	if (flag->shorter == 1 && flag->longer == 0)
 	{
 		num = (unsigned short int)va_arg(arg, unsigned int);
