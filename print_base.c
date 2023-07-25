@@ -38,6 +38,7 @@ int print_hex(va_list arg, flags_t *flag)
 				replc[i] = ' ';
 			for (i = 0; i < _strlen(str); i++)
 				replc[i + flag->width - _strlen(str)] = str[i];
+			replc[flag->width] = '\0';
 		}
 	}
 	else
@@ -87,6 +88,7 @@ int print_hex_upper(va_list arg, flags_t *flag)
 				replc[i] = ' ';
 			for (i = 0; i < _strlen(str); i++)
 				replc[i + flag->width - _strlen(str)] = str[i];
+			replc[flag->width] = '\0';
 		}
 	}
 	else
@@ -150,6 +152,7 @@ int print_octal(va_list arg, flags_t *flag)
 				replc[i] = ' ';
 			for (i = 0; i < _strlen(str); i++)
 				replc[i + flag->width - _strlen(str)] = str[i];
+			replc[flag->width] = '\0';
 		}
 	}
 	else
@@ -158,5 +161,5 @@ int print_octal(va_list arg, flags_t *flag)
 	}
 	count += _puts(replc);
 	free(replc);
-	return (count);	
+	return (count);
 }
