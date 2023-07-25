@@ -30,13 +30,13 @@ int print_hex(va_list arg, flags_t *flag)
 	{	
 		if (flag->hash == 1 && str[0] != '0')
 		{
-			if (flag->width - _strlen(str) - 2 <= 0)
+			if ((flag->width - _strlen(str) - 2) <= 0)
 			{
 				count += _puts("0x");
 				count += _puts(str);
 				return (count);
 			}
-			replc = (char *)malloc(flag->width);
+			replc = (char *)malloc(flag->width + 1);
 			for (i = 0; i < (flag->width - _strlen(str) - 2); i++)
 			{
 				replc[i] = ' ';
@@ -45,8 +45,9 @@ int print_hex(va_list arg, flags_t *flag)
 				replc[i] = 'x';
 			for (i = 0; i < _strlen(str); i++)
 			{
-				replc[i + flag->width - _strlen(str) + 2] = str[i];
+				replc[(i + flag->width - _strlen(str))] = str[i];
 			}
+			replc[flag->width] = '\0';
 		}
 		else
 		{
