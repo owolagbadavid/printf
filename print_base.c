@@ -9,22 +9,15 @@
 int print_hex(va_list arg, flags_t *flag)
 {
 	unsigned long int num;
-	char *str;
+	char *str, *replc;
 	int count = 0, i;
-	char *replc;
 
 	if (flag->shorter == 1 && flag->longer == 0)
-	{
 		num = (unsigned short int)va_arg(arg, unsigned int);
-	}
 	else if (flag->longer == 1)
-	{
 		num = (unsigned long int)va_arg(arg, unsigned long int);
-	}
 	else
-	{
 		num = va_arg(arg, unsigned int);
-	}
 	str = convert(num, 16, 0);
 	if (flag->width - _strlen(str) > 0)
 	{
@@ -38,30 +31,21 @@ int print_hex(va_list arg, flags_t *flag)
 			}
 			replc = (char *)malloc(flag->width + 1);
 			for (i = 0; i < (flag->width - _strlen(str) - 2); i++)
-			{
 				replc[i] = ' ';
-			}
-				replc[i++] = '0';
-				replc[i] = 'x';
+			replc[i++] = '0';
+			replc[i] = 'x';
 			for (i = 0; i < _strlen(str); i++)
-			{
 				replc[(i + flag->width - _strlen(str))] = str[i];
-			}
 			replc[flag->width] = '\0';
 		}
 		else
 		{
 			replc = (char *)malloc(flag->width + 1);
 			for (i = 0; i < (flag->width - _strlen(str)); i++)
-			{
 				replc[i] = ' ';
-			}
 			for (i = 0; i < _strlen(str); i++)
-			{
 				replc[i + flag->width - _strlen(str)] = str[i];
-			}
 		}
-
 	}
 	else
 	{
@@ -84,22 +68,15 @@ int print_hex(va_list arg, flags_t *flag)
 int print_hex_upper(va_list arg, flags_t *flag)
 {
 	unsigned long int num;
-	char *str;
+	char *str, *replc;
 	int count = 0, i;
-	char *replc;
 
 	if (flag->shorter == 1 && flag->longer == 0)
-	{
 		num = (unsigned short int)va_arg(arg, unsigned int);
-	}
 	else if (flag->longer == 1)
-	{
 		num = (unsigned long int)va_arg(arg, unsigned long int);
-	}
 	else
-	{
 		num = va_arg(arg, unsigned int);
-	}
 	str = convert(num, 16, 1);
 	if (flag->width - _strlen(str) > 0)
 	{
@@ -113,30 +90,21 @@ int print_hex_upper(va_list arg, flags_t *flag)
 			}
 			replc = (char *)malloc(flag->width + 1);
 			for (i = 0; i < (flag->width - _strlen(str) - 2); i++)
-			{
 				replc[i] = ' ';
-			}
-				replc[i++] = '0';
-				replc[i] = 'X';
+			replc[i++] = '0';
+			replc[i] = 'X';
 			for (i = 0; i < _strlen(str); i++)
-			{
 				replc[(i + flag->width - _strlen(str))] = str[i];
-			}
 			replc[flag->width] = '\0';
 		}
 		else
 		{
 			replc = (char *)malloc(flag->width + 1);
 			for (i = 0; i < (flag->width - _strlen(str)); i++)
-			{
 				replc[i] = ' ';
-			}
 			for (i = 0; i < _strlen(str); i++)
-			{
 				replc[i + flag->width - _strlen(str)] = str[i];
-			}
 		}
-
 	}
 	else
 	{
