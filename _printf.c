@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 				count += _putchar('%');
 				continue;
 			}
-		while (get_flag(*p, &flags))
+		while (get_flag(p, &flags))
 			p++;
 		pHndlr = get_handler(*p);
 		count += (pHndlr)

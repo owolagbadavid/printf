@@ -45,11 +45,11 @@ int (*get_handler(char c))(va_list, flags_t *)
  *
  * Return: int
  */
-int get_flag(char s, flags_t *flag)
+int get_flag(const char *s, flags_t *flag)
 {
 	int i = 0;
 
-	switch (s)
+	switch (*s)
 	{
 		case '+':
 			flag->plus = 1;

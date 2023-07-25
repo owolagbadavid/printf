@@ -42,7 +42,7 @@ int print_int(va_list, flags_t *);
 int print_char(va_list, flags_t *);
 int print_string(va_list, flags_t *);
 int (*get_handler(char))(va_list, flags_t *);
-int get_flag(char, flags_t *);
+int get_flag(const char *, flags_t *);
 char *convert(unsigned long int num, int base, int upper);
 int print_binary(va_list, flags_t *);
 int print_octal(va_list, flags_t *);
