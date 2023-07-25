@@ -42,10 +42,10 @@ int (*get_handler(char c))(va_list, flags_t *)
  * get_flag - gets flag
  * @s: char
  * @flag: flag pointer
- *
+ * @arg: re arg
  * Return: int
  */
-int get_flag(const char *s, flags_t *flag)
+int get_flag(const char *s, flags_t *flag, va_list arg)
 {
 	int i = 0;
 
@@ -71,11 +71,47 @@ int get_flag(const char *s, flags_t *flag)
 			flag->shorter = 1;
 			i = 1;
 			break;
+		default:
+			if ((*s >= '0' && *s <= '9') || *s == '*')
+			{
+				flag->width = get_width_or_precision(s, arg);
+			}
+			else if (*s == '.')
+			{
+				flag->precision = get_width_or_precision(s, arg);
+			}
+			break;
 	}
 
 	return (i);
 }
 
+/**
+ * get_width_or_precision - stuff
+ *
+ * @ptr: ointer
+ * @arg: the arg
+ *
+ * Return: int
+ */
+int get_width_or_precision(const char *ptr, va_list arg)
+{
+	int it;
+
+	while (*ptr >= '0' && *ptr <= '9')
+	{
+		it = it * 10 + (*ptr - '0');
+		ptr++;
+	}
+
+	if (*ptr == '*')
+	{
+		it = va_arg(arg, int);
+		ptr++;
+	}
+
+	return (it);
+}
 /**
  * count_digit - returns the number of digits
  * @i: int

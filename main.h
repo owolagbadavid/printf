@@ -18,6 +18,8 @@ typedef struct flags
 	int hash;
 	int longer;
 	int shorter;
+	int width;
+	int precision;
 } flags_t;
 
 /**
@@ -42,7 +44,8 @@ int print_int(va_list, flags_t *);
 int print_char(va_list, flags_t *);
 int print_string(va_list, flags_t *);
 int (*get_handler(char))(va_list, flags_t *);
-int get_flag(const char *, flags_t *);
+int get_flag(const char *, flags_t *, va_list);
+int get_width_or_precision(const char *, va_list);
 char *convert(unsigned long int num, int base, int upper);
 int print_binary(va_list, flags_t *);
 int print_octal(va_list, flags_t *);
