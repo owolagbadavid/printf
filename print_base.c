@@ -27,7 +27,7 @@ int print_hex(va_list arg, flags_t *flag)
 	}
 	str = convert(num, 16, 0);
 	if (flag->width - _strlen(str) > 0)
-	{	
+	{
 		if (flag->hash == 1 && str[0] != '0')
 		{
 			if ((flag->width - _strlen(str) - 2) <= 0)
@@ -87,6 +87,7 @@ int print_hex_upper(va_list arg, flags_t *flag)
 	char *str;
 	int count = 0, i;
 	char *replc;
+
 	if (flag->shorter == 1 && flag->longer == 0)
 	{
 		num = (unsigned short int)va_arg(arg, unsigned int);
@@ -101,7 +102,7 @@ int print_hex_upper(va_list arg, flags_t *flag)
 	}
 	str = convert(num, 16, 1);
 	if (flag->width - _strlen(str) > 0)
-	{	
+	{
 		if (flag->hash == 1 && str[0] != '0')
 		{
 			if ((flag->width - _strlen(str) - 2) <= 0)
