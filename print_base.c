@@ -51,7 +51,7 @@ int print_hex(va_list arg, flags_t *flag)
 		}
 		else
 		{
-			replc = (char *)malloc(flag->width);
+			replc = (char *)malloc(flag->width + 1);
 			for (i = 0; i < (flag->width - _strlen(str)); i++)
 			{
 				replc[i] = ' ';
@@ -71,6 +71,7 @@ int print_hex(va_list arg, flags_t *flag)
 		return (count);
 	}
 	count += _puts(replc);
+	free(replc);
 	return (count);
 }
 
@@ -124,7 +125,7 @@ int print_hex_upper(va_list arg, flags_t *flag)
 		}
 		else
 		{
-			replc = (char *)malloc(flag->width);
+			replc = (char *)malloc(flag->width + 1);
 			for (i = 0; i < (flag->width - _strlen(str)); i++)
 			{
 				replc[i] = ' ';
@@ -144,6 +145,7 @@ int print_hex_upper(va_list arg, flags_t *flag)
 		return (count);
 	}
 	count += _puts(replc);
+	free(replc);
 	return (count);
 }
 
