@@ -12,19 +12,11 @@ int print_hex(va_list arg, flags_t *flag)
 	char *str;
 	int count = 0;
 
-	if (flag->shorter == 1 && !(flag->longer))
+	if (flag->shorter == 1 && flag->longer == 0)
 	{
 		num = (unsigned short int)va_arg(arg, unsigned int);
 	}
-	else if (flag->shorter >= 2 && !(flag->longer))
-	{
-		num = (unsigned char)va_arg(arg, unsigned int);
-	}
 	else if (flag->longer == 1)
-	{
-		num = (unsigned long int)va_arg(arg, unsigned long int);
-	}
-	else if (flag->longer >= 2)
 	{
 		num = (unsigned long int)va_arg(arg, unsigned long int);
 	}
@@ -51,19 +43,11 @@ int print_hex_upper(va_list arg, flags_t *flag)
 	char *str;
 	int count = 0;
 
-	if (flag->shorter == 1 && !(flag->longer))
+	if (flag->shorter == 1 && flag->longer == 0)
 	{
 		num = (unsigned short int)va_arg(arg, unsigned int);
 	}
-	else if (flag->shorter >= 2 && !(flag->longer))
-	{
-		num = (unsigned char)va_arg(arg, unsigned int);
-	}
 	else if (flag->longer == 1)
-	{
-		num = (unsigned long int)va_arg(arg, unsigned long int);
-	}
-	else if (flag->longer >= 2)
 	{
 		num = (unsigned long int)va_arg(arg, unsigned long int);
 	}
@@ -89,7 +73,6 @@ int print_binary(va_list arg, flags_t __attribute__((__unused__)) *flag)
 	unsigned long int num = va_arg(arg, unsigned int);
 	char *str;
 
-
 	str = convert(num, 2, 0);
 	return (_puts(str));
 }
@@ -106,19 +89,11 @@ int print_octal(va_list arg, flags_t *flag)
 	char *str;
 	int count = 0;
 
-	if (flag->shorter == 1 && !(flag->longer))
+	if (flag->shorter == 1 && flag->longer == 0)
 	{
 		num = (unsigned short int)va_arg(arg, unsigned int);
 	}
-	else if (flag->shorter >= 2 && !(flag->longer))
-	{
-		num = (unsigned char)va_arg(arg, unsigned int);
-	}
 	else if (flag->longer == 1)
-	{
-		num = (unsigned long int)va_arg(arg, unsigned long int);
-	}
-	else if (flag->longer >= 2)
 	{
 		num = (unsigned long int)va_arg(arg, unsigned long int);
 	}

@@ -64,11 +64,11 @@ int get_flag(char s, flags_t *flag)
 			i = 1;
 			break;
 		case 'l':
-			flag->longer++;
+			flag->longer = 1;
 			i = 1;
 			break;
 		case 'h':
-			flag->shorter++;
+			flag->shorter = 1;
 			i = 1;
 			break;
 	}

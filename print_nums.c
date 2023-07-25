@@ -11,19 +11,11 @@ int print_int(va_list arg, flags_t *flag)
 	long int num;
 	int res;
 
-	if (flag->shorter == 1 && !(flag->longer))
+	if (flag->shorter == 1 && flag->longer == 0)
 	{
 		num = (short int)va_arg(arg, int);
 	}
-	else if (flag->shorter >= 2 && !(flag->longer))
-	{
-		num = (char)va_arg(arg, int);
-	}
 	else if (flag->longer == 1)
-	{
-		num = (long int)va_arg(arg,  long int);
-	}
-	else if (flag->longer >= 2)
 	{
 		num = (long int)va_arg(arg, long int);
 	}
@@ -53,19 +45,11 @@ int print_unsigned(va_list arg, flags_t *flag)
 	unsigned long int num;
 	char *str;
 
-	if (flag->shorter == 1 && !(flag->longer))
+	if (flag->shorter == 1 && flag->longer == 0)
 	{
 		num = (unsigned short int)va_arg(arg, unsigned int);
 	}
-	else if (flag->shorter >= 2 && !(flag->longer))
-	{
-		num = (unsigned char)va_arg(arg, unsigned int);
-	}
 	else if (flag->longer == 1)
-	{
-		num = (unsigned long int)va_arg(arg, unsigned long int);
-	}
-	else if (flag->longer >= 2)
 	{
 		num = (unsigned long int)va_arg(arg, unsigned long int);
 	}
