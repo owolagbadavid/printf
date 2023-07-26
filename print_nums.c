@@ -42,23 +42,27 @@ int print_int(va_list arg, flags_t *flag)
 */
 int print_unsigned(va_list arg, flags_t *flag)
 {
-	unsigned long int num;
-	char *str;
+	unsigned long int num = handle_len(arg, flag);
+	char *str = convert(num, 10, 0), *replc;
+	int count = 0, i;
 
-	if (flag->shorter == 1 && flag->longer == 0)
+	if (flag->width - _strlen(str) > 0)
 	{
-		num = (unsigned short int)va_arg(arg, unsigned int);
-	}
-	else if (flag->longer == 1)
-	{
-		num = (unsigned long int)va_arg(arg, unsigned long int);
+		{
+			replc = (char *)malloc(flag->width + 1);
+			for (i = 0; i < (flag->width - _strlen(str)); i++)
+				replc[i] = ' ';
+			for (i = 0; i < _strlen(str); i++)
+				replc[i + flag->width - _strlen(str)] = str[i];
+		}
 	}
 	else
 	{
-		num = va_arg(arg, unsigned int);
+		return (_puts(str));
 	}
-	str = convert(num, 10, 0);
-	return (_puts(str));
+	count += _puts(replc);
+	free(replc);
+	return (count);
 }
 
 /**
