@@ -37,8 +37,8 @@ int _printf(const char *format, ...)
 			: _printf("%%%c", *p);
 		reset_flags(&flags);
 		}
-	else
-		count += _putchar(*p);
+		else
+			count += _putchar(*p);
 	}
 	_putchar(-1);
 	va_end(args);

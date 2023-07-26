@@ -99,7 +99,7 @@ int get_flag(const char *s, flags_t *flag, va_list arg)
  */
 int get_width_or_precision(const char *ptr, va_list arg)
 {
-	int it;
+	int it = 0;
 
 	while (*ptr >= '0' && *ptr <= '9')
 	{
