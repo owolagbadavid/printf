@@ -9,15 +9,35 @@
 int print_int(va_list arg, flags_t *flag)
 {
 	long int num = handle_len_sign(arg, flag);
-	int res;
+	int res = count_digit(num), space = 0, plus = 0, i;
 
-	res = count_digit(num);
 	if (flag->space == 1 && flag->plus == 0 && num >= 0)
-		res += _putchar(' ');
-	if (flag->plus == 1 && num >= 0)
-		res += _putchar('+');
-	if (num <= 0)
-	res++;
+		space = 1;
+	else if (flag->plus == 1 && num >= 0)
+		plus = 1;
+	if (flag->width - res > 0)
+	{
+		if (num < 0)
+			res++;
+		if (flag->width - res - space - num > 0)
+		{
+			for (i = 0; i < flag->width - res - space - num; i++)
+				res += _putchar(' ');
+			res += space ? _putchar(' ') : plus ? _putchar('+') : 0;
+		}
+		else
+		{
+			res += space ? _putchar(' ') : plus ? _putchar('+') : 0;
+		}
+	}
+	else
+	{
+		res += space ? _putchar(' ') : plus ? _putchar('+') : 0;
+		if (num < 0)
+			res++;
+		print_number(num);
+		return (res);
+	}
 	print_number(num);
 	return (res);
 }
