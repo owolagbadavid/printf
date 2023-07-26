@@ -64,5 +64,5 @@ int handle_hash(char *, flags_t *);
 int handle_hash_upper(char *, flags_t *);
 int handle_hash_octal(char *, flags_t *);
 void reset_flags(flags_t *);
-
+long int handle_len_sign(va_list, flags_t *);
 #endif
