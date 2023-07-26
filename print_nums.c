@@ -9,7 +9,7 @@
 int print_int(va_list arg, flags_t *flag)
 {
 	long int num = handle_len_sign(arg, flag);
-	int res = count_digit(num), space = 0, plus = 0, i;
+	int res = count_digit(num), space = 0, plus = 0, i, j = res;
 
 	if (flag->space == 1 && flag->plus == 0 && num >= 0)
 		space = 1;
@@ -19,9 +19,9 @@ int print_int(va_list arg, flags_t *flag)
 	{
 		if (num < 0)
 			res++;
-		if (flag->width - res - space - plus > 0)
+		if (flag->width - j - space - plus > 0)
 		{
-			for (i = 0; i <= flag->width - res - space - plus; i++)
+			for (i = 0; i < flag->width - j - space - plus; i++)
 				res += _putchar(' ');
 			res += space ? _putchar(' ') : plus ? _putchar('+') : 0;
 		}
