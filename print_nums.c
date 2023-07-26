@@ -21,7 +21,7 @@ int print_int(va_list arg, flags_t *flag)
 			res++;
 		if (flag->width - res - space - plus > 0)
 		{
-			for (i = 0; i < flag->width - res - space - plus; i++)
+			for (i = 0; i <= flag->width - res - space - plus; i++)
 				res += _putchar(' ');
 			res += space ? _putchar(' ') : plus ? _putchar('+') : 0;
 		}
