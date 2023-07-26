@@ -8,21 +8,9 @@
 */
 int print_int(va_list arg, flags_t *flag)
 {
-	long int num;
+	long int num = handle_len_sign(arg, flag);
 	int res;
 
-	if (flag->shorter == 1 && flag->longer == 0)
-	{
-		num = (short int)va_arg(arg, int);
-	}
-	else if (flag->longer == 1)
-	{
-		num = (long int)va_arg(arg, long int);
-	}
-	else
-	{
-		num = va_arg(arg, int);
-	}
 	res = count_digit(num);
 	if (flag->space == 1 && flag->plus == 0 && num >= 0)
 		res += _putchar(' ');
